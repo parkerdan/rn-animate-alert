@@ -11,6 +11,8 @@ Gif quality not the greatest, but you get the picture...
 
 `npm install --save rn-animate-alert`
 
+- Put this as the bottommost component to overlay all other views.  See Example for how to accomplish this.
+
 - Will not animate unless you specify what direction.
 
 `springFromTop={true}` or `springFromBottom={true}`
@@ -41,7 +43,7 @@ export default class Example extends Component {
         justifyContent:'center',
         backgroundColor:'deeppink'
       }}>
-        <Text style={{color:'white',fontSize:30, textAlign:'center'}}>I'm a React-Native Component</Text>
+        <Text style={{color:'white',fontSize:30, textAlign:'center'}}>I am a React-Native Component</Text>
         <TouchableOpacity
           onPress={
             () => this.setState({renderAlert:true})
@@ -89,34 +91,25 @@ export default class Example extends Component {
 AppRegistry.registerComponent('Example', () => Example);
 ```
 
-### There's a shit ton of props available to style this thing HOWEVER YOU WANT
+#### There's a shit ton of props available to style this thing HOWEVER YOU WANT
 
-##### Available props
+### Props
 
-```js
-onConfirm: React.PropTypes.func.isRequired,
-onCancel: React.PropTypes.func.isRequired,
-
-title: React.PropTypes.string.isRequired,
-titleTextStyle: React.PropTypes.oneOfType([React.PropTypes.number,React.PropTypes.object,React.PropTypes.array]),
-
-detailText: React.PropTypes.string,
-detailTextStyle: React.PropTypes.oneOfType([React.PropTypes.number,React.PropTypes.object,React.PropTypes.array]),
-
-confirmText: React.PropTypes.string,
-confirmTextStyle:React.PropTypes.oneOfType([React.PropTypes.number,React.PropTypes.object,React.PropTypes.array]),
-confirmButtonStyle:React.PropTypes.oneOfType([React.PropTypes.number,React.PropTypes.object,React.PropTypes.array]),
-
-cancelText: React.PropTypes.string,
-cancelTextStyle: React.PropTypes.oneOfType([React.PropTypes.number,React.PropTypes.object,React.PropTypes.array]),
-cancelButtonStyle:React.PropTypes.oneOfType([React.PropTypes.number,React.PropTypes.object,React.PropTypes.array]),
-
-backgroundColor: React.PropTypes.string,
-
-containerStyle: React.PropTypes.oneOfType([React.PropTypes.number,React.PropTypes.object,React.PropTypes.array]),
-
-springFromBottom: React.PropTypes.bool,
-springFromTop: React.PropTypes.bool,
-
-zIndex: React.PropTypes.number,
-```
+| Prop | Type | Description | Required |
+| ---  | ---  | ---         | ---      |
+| onConfirm | function | function called when the confirm button is pressed | **YES** |
+| onCancel | function | function called when the cancel button is pressed | **YES** |
+| title | string | text displayed at the top of the alert | **YES** |
+| titleTextStyle | object | styles applied to the title text | no |
+| detailText | string | descriptive text displayed under the title | no |
+| detailTextStyle | object | styles applied to the detail text | no |
+| confirmText | string | text for the confirm button | no |
+| confirmTextStyle | object | styles applied to the confirm text | no |
+| confirmButtonStyle | object | styles applied to the confirm button | no |
+| cancelText | string | text for the cancel button | no |
+| cancelTextStyle | object | styles applied to the cancel text | no |
+| cancelButtonStyle | object | styles applied to the cancel button | no |
+| backgroundColor | string | color applied to the background of the overlay | no |
+| containerStyle | object | styles applied to the container of the text and buttons | no |
+| springFromBottom | boolean | should the alert spring from the bottom | no |
+| spring from top | boolean | should the alert spring from the top | no |
