@@ -38,15 +38,17 @@ componentWillReceiveProps(nextProps){
 }
 
 animateIn = () => {
+  this.setState({show:true})
   Animated.spring(this.state.offset,{
     toValue: 1
-  }).start(() => this.setState({show:true}))
+  }).start()
 }
 
 animateOut = () => {
+  this.setState({show:false})
   Animated.spring(this.state.offset,{
     toValue: 0
-  }).start(() => this.setState({show:false}))
+  }).start()
 }
 
 calculateTranslate = () => {
