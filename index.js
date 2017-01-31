@@ -45,10 +45,10 @@ animateIn = () => {
 }
 
 animateOut = () => {
-  this.setState({show:false})
+
   Animated.spring(this.state.offset,{
     toValue: 0
-  }).start()
+  }).start( () => this.setState({show:false}) )
 }
 
 calculateTranslate = () => {
@@ -102,10 +102,10 @@ calculateTranslate = () => {
 }
 
 render(){
-  const { backgroundColor:b, show } = this.props
-  if (show) {
+  if (this.state.show) {
+    const { backgroundColor } = this.props
     return(
-      <Animated.View style={[ styles.container,{backgroundColor:b},this.calculateTranslate() ]}>
+      <Animated.View style={[ styles.container,{backgroundColor:backgroundColor},this.calculateTranslate() ]}>
         { this.props.children }
       </Animated.View>
     )
