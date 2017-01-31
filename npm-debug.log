@@ -1,0 +1,113 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/7.4.0/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@4.0.5
+3 info using node@v7.4.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/danparker/rn-animate-alert',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/danparker/.npm/rn-animate-alert/1.1.2/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/danparker/.npm correctMkdir not in flight; initializing
+10 info lifecycle rn-animate-alert@1.1.2~prepublish: rn-animate-alert@1.1.2
+11 silly lifecycle rn-animate-alert@1.1.2~prepublish: no script for prepublish, continuing
+12 info lifecycle rn-animate-alert@1.1.2~prepare: rn-animate-alert@1.1.2
+13 silly lifecycle rn-animate-alert@1.1.2~prepare: no script for prepare, continuing
+14 verbose tar pack [ '/Users/danparker/.npm/rn-animate-alert/1.1.2/package.tgz',
+14 verbose tar pack   '/Users/danparker/rn-animate-alert' ]
+15 verbose tarball /Users/danparker/.npm/rn-animate-alert/1.1.2/package.tgz
+16 verbose folder /Users/danparker/rn-animate-alert
+17 verbose addLocalTarball adding from inside cache /Users/danparker/.npm/rn-animate-alert/1.1.2/package.tgz
+18 verbose correctMkdir /Users/danparker/.npm correctMkdir not in flight; initializing
+19 silly cache afterAdd rn-animate-alert@1.1.2
+20 verbose afterAdd /Users/danparker/.npm/rn-animate-alert/1.1.2/package/package.json not in flight; writing
+21 verbose correctMkdir /Users/danparker/.npm correctMkdir not in flight; initializing
+22 verbose afterAdd /Users/danparker/.npm/rn-animate-alert/1.1.2/package/package.json written
+23 silly publish { name: 'rn-animate-alert',
+23 silly publish   version: '1.1.2',
+23 silly publish   description: 'Highly customizable Animated Alert for react-native',
+23 silly publish   main: 'index.js',
+23 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+23 silly publish   repository:
+23 silly publish    { type: 'git',
+23 silly publish      url: 'git+https://github.com/parkerdan/rn-animate-alert.git' },
+23 silly publish   keywords: [ 'react-native', 'alert', 'animated' ],
+23 silly publish   author: { name: 'Dan Parker' },
+23 silly publish   license: 'MIT',
+23 silly publish   bugs: { url: 'https://github.com/parkerdan/rn-animate-alert/issues' },
+23 silly publish   homepage: 'https://github.com/parkerdan/rn-animate-alert#readme',
+23 silly publish   readme: '# rn-animate-alert\n\n---\nWhen the traditional Alert just isn\'t good enough\n---\nGif quality not the greatest, but you get the picture...\n---\n\n\n![gif](./alertNew.gif "Alert")\n\n`npm install --save rn-animate-alert`\n\n- Put this as the bottommost component to overlay all other views.\n- Wrap whatever content inside\n\n\n\n#### Just copy the example and you\'ll see\n\n```js\nimport React from \'react\';\nimport { View, TouchableOpacity, AppRegistry, Text, StyleSheet } from \'react-native\';\nimport Alert from \'rn-animate-alert\';\n\nconst styles = StyleSheet.create({\n  container:{\n    flex:1,\n    alignItems:\'center\',\n    justifyContent:\'center\',\n  },\n  button:{\n    borderRadius:5,\n    padding:20,\n    alignItems:\'center\',\n    backgroundColor:\'aqua\'\n  },\n  buttonTwo:{\n    borderRadius:5,\n    padding:20,\n    alignItems:\'center\',\n    backgroundColor:\'white\'\n  },\n  overlayText:{\n    color:\'white\',\n    fontWeight:\'700\'\n  }\n})\n\nexport default class Example extends React.Component {\n\n  constructor(){\n    super();\n    this.state={\n      show: false\n    }\n  };\n\n  toggleAlert = () => {\n    this.setState({show:!this.state.show})\n  }\n\n  render(){\n    return(\n      <View style={ styles.container }>\n        <Text>I am a React-Native Component</Text>\n        <TouchableOpacity\n          onPress={ this.toggleAlert }\n          style={ styles.button }>\n          <Text>Show Alert</Text>\n        </TouchableOpacity>\n\n\n        <Alert\n        backgroundColor={ \'rgba(111,111,111,.5)\' }\n        show={ this.state.show }\n        entrance={ \'fromBottom\' }\n        >\n          <View style={ styles.container }>\n            <Text>****I AM AN OVERLAY*****</Text>\n            <TouchableOpacity\n            onPress={ this.toggleAlert }\n            style={ styles.buttonTwo }>\n            <Text>Hide Alert</Text>\n            </TouchableOpacity>\n          </View>\n        </Alert>\n      </View>\n    )\n  };\n\n};\n\nAppRegistry.registerComponent(\'Example\', () => Example);\n```\n\n\n### Props\n\n| Prop | Type | Description | Required |\n| ---  | ---  | ---         | ---      |\n| entrance | enum oneOf `\'fromTop\'`,`\'fromBottom\'`,`\'fromLeft\'`,`\'fromRight\'` | how to enter | **YES** |\n| backgroundColor | string | backgroundColor of overlay | **YES**|\n| show | bool | whether to show this | **YES** |\n',
+23 silly publish   readmeFilename: 'README.md',
+23 silly publish   gitHead: '9549b6b4373541c2e1f87e9528a2655d4cc17f46',
+23 silly publish   _id: 'rn-animate-alert@1.1.2',
+23 silly publish   _shasum: 'd352fc0780c727aed42f906ab696fc33482e8387',
+23 silly publish   _from: '.' }
+24 info lifecycle rn-animate-alert@1.1.2~prepublishOnly: rn-animate-alert@1.1.2
+25 silly lifecycle rn-animate-alert@1.1.2~prepublishOnly: no script for prepublishOnly, continuing
+26 verbose getPublishConfig undefined
+27 silly mapToRegistry name rn-animate-alert
+28 silly mapToRegistry using default registry
+29 silly mapToRegistry registry https://registry.npmjs.org/
+30 silly mapToRegistry data Result {
+30 silly mapToRegistry   raw: 'rn-animate-alert',
+30 silly mapToRegistry   scope: null,
+30 silly mapToRegistry   escapedName: 'rn-animate-alert',
+30 silly mapToRegistry   name: 'rn-animate-alert',
+30 silly mapToRegistry   rawSpec: '',
+30 silly mapToRegistry   spec: 'latest',
+30 silly mapToRegistry   type: 'tag' }
+31 silly mapToRegistry uri https://registry.npmjs.org/rn-animate-alert
+32 verbose publish registryBase https://registry.npmjs.org/
+33 silly publish uploading /Users/danparker/.npm/rn-animate-alert/1.1.2/package.tgz
+34 verbose request uri https://registry.npmjs.org/rn-animate-alert
+35 verbose request sending authorization for write operation
+36 info attempt registry request try #1 at 1:51:02 PM
+37 verbose request using bearer token for auth
+38 verbose request id 8f763f801cf34df8
+39 http request PUT https://registry.npmjs.org/rn-animate-alert
+40 http 403 https://registry.npmjs.org/rn-animate-alert
+41 verbose headers { 'content-type': 'application/json',
+41 verbose headers   'cache-control': 'max-age=300',
+41 verbose headers   'content-length': '95',
+41 verbose headers   'accept-ranges': 'bytes',
+41 verbose headers   date: 'Tue, 31 Jan 2017 19:51:03 GMT',
+41 verbose headers   via: '1.1 varnish',
+41 verbose headers   connection: 'keep-alive',
+41 verbose headers   'x-served-by': 'cache-dfw1822-DFW',
+41 verbose headers   'x-cache': 'MISS',
+41 verbose headers   'x-cache-hits': '0',
+41 verbose headers   'x-timer': 'S1485892262.270686,VS0,VE858',
+41 verbose headers   vary: 'Accept-Encoding' }
+42 verbose request invalidating /Users/danparker/.npm/registry.npmjs.org/rn-animate-alert on PUT
+43 error publish Failed PUT 403
+44 verbose stack Error: "You cannot publish over the previously published version 1.1.2." : rn-animate-alert
+44 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:302:12)
+44 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:290:14)
+44 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:210:14)
+44 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:186:22)
+44 verbose stack     at emitTwo (events.js:106:13)
+44 verbose stack     at Request.emit (events.js:191:7)
+44 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1081:10)
+44 verbose stack     at emitOne (events.js:96:13)
+44 verbose stack     at Request.emit (events.js:188:7)
+44 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1001:12)
+45 verbose statusCode 403
+46 verbose pkgid rn-animate-alert
+47 verbose cwd /Users/danparker/rn-animate-alert
+48 error Darwin 16.0.0
+49 error argv "/usr/local/Cellar/node/7.4.0/bin/node" "/usr/local/bin/npm" "publish"
+50 error node v7.4.0
+51 error npm  v4.0.5
+52 error code E403
+53 error "You cannot publish over the previously published version 1.1.2." : rn-animate-alert
+54 error If you need help, you may report this error at:
+54 error     <https://github.com/npm/npm/issues>
+55 verbose exit [ 1, true ]
