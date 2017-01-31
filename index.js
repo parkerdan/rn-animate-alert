@@ -28,7 +28,7 @@ componentDidMount(){
 }
 
 componentWillReceiveProps(nextProps){
-  if (nextProps.show !== this.state.show) {
+  if (nextProps.show !== this.props.show) {
     if (nextProps.show) {
       this.animateIn()
     } else {
