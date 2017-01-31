@@ -102,12 +102,16 @@ calculateTranslate = () => {
 }
 
 render(){
-  let { backgroundColor:b } = this.props
-  return(
-    <Animated.View style={[ styles.container,{backgroundColor:b},this.calculateTranslate() ]}>
-      { this.props.children }
-    </Animated.View>
-  )
+  const { backgroundColor:b, show } = this.props
+  if (show) {
+    return(
+      <Animated.View style={[ styles.container,{backgroundColor:b},this.calculateTranslate() ]}>
+        { this.props.children }
+      </Animated.View>
+    )
+  } else {
+    return null
+  }
 };
 
 };
