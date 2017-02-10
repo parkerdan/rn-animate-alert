@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react';
-import { View, Dimensions, Animated, StyleSheet } from 'react-native';
+import { View, Dimensions, Animated, StyleSheet, Modal, Easing } from 'react-native';
 const { height,width } = Dimensions.get('window');
 const styles = StyleSheet.create({container:{position:'absolute',top:0,left:0,right:0,bottom:0}})
 
@@ -14,23 +14,17 @@ export default class Alert extends React.Component {
   }
 
 constructor(props){
-  super(props);
+  super(props)
   this.state = {
     offset: new Animated.Value(0),
-    show:props.show
-  };
-};
-
-componentDidMount(){
-  if (this.state.show) {
-    this.animateIn()
+    show:props.show,
   }
 }
 
 componentWillReceiveProps(nextProps){
   if (nextProps.show !== this.props.show) {
     if (nextProps.show) {
-      this.animateIn()
+      this.setState({show:true})
     } else {
       this.animateOut()
     }
@@ -38,16 +32,16 @@ componentWillReceiveProps(nextProps){
 }
 
 animateIn = () => {
-  this.setState({show:true})
   Animated.spring(this.state.offset,{
     toValue: 1
   }).start()
 }
 
 animateOut = () => {
-
-  Animated.spring(this.state.offset,{
-    toValue: 0
+  Animated.timing(this.state.offset,{
+    toValue: 0,
+    duration: 500,
+    easing: Easing.inOut(Easing.ease)
   }).start( () => this.setState({show:false}) )
 }
 
@@ -62,7 +56,7 @@ calculateTranslate = () => {
           })
         }]
       }
-      break;
+      break
     case 'fromTop':
       return {
         transform: [{
@@ -72,7 +66,7 @@ calculateTranslate = () => {
           })
         }]
       }
-      break;
+      break
 
     case 'fromLeft':
       return {
@@ -83,7 +77,7 @@ calculateTranslate = () => {
           })
         }]
       }
-      break;
+      break
 
     case 'fromRight':
       return {
@@ -94,24 +88,27 @@ calculateTranslate = () => {
           })
         }]
       }
-      break;
-
-    default:
-
+      break
   }
 }
 
 render(){
-  if (this.state.show) {
-    const { backgroundColor } = this.props
-    return(
-      <Animated.View style={[ styles.container,{backgroundColor:backgroundColor},this.calculateTranslate() ]}>
-        { this.props.children }
-      </Animated.View>
-    )
-  } else {
-    return null
-  }
-};
+  const { backgroundColor } = this.props
+  return(
+    <Modal
+      animationType={'fade'}
+      transparent={true}
+      visible={ this.state.show }
+      onShow={ this.animateIn }
+      onRequestClose={ () => {} }
+    >
+      <View style={[styles.container,{backgroundColor:backgroundColor}]}>
+        <Animated.View style={[ styles.container,this.calculateTranslate() ]}>
+          { this.props.children }
+        </Animated.View>
+      </View>
+    </Modal>
+  )
+}
 
-};
+}
