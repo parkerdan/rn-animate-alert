@@ -1,5 +1,5 @@
 # rn-animate-alert
-
+<a href="https://npmjs.org/package/rn-animate-alert"><img alt="npm version" src="http://img.shields.io/npm/dt/rn-animate-alert.svg?style=flat-square"></a>
 ---
 When the traditional Alert just isn't good enough
 ---
