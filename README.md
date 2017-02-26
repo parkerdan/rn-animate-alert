@@ -11,7 +11,7 @@ Gif quality not the greatest, but you get the picture...
 
 `npm install --save rn-animate-alert`
 
-- Put this as the bottommost component to overlay all other views.
+- Now uses Modal so it doesn't have to be bottommost component
 - Wrap whatever content inside
 
 
